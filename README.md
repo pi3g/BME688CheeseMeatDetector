@@ -2,6 +2,10 @@
 ### Example for BME688 sensor and RaspberryPi to distinguish cheese :cheese: and meat :bacon:
 ### published by pi3g e.K. under MIT license
 
+## What you need
+- [RaspberryPi](https://buyzero.de/collections/raspberry-pi-4-pi-400-desktop-kit/products/raspberry-pi-4b) with [RaspberryPiOS](https://www.raspberrypi.org/software/) installed
+- [BME688 Breakout Board](https://buyzero.de/products/luftqualitatssensor-bosch-bme688-breakout-board?_pos=2&_sid=7413a7740&_ss=r)
+
 ## How to setup and run the example
 | Step | Command |
 | ---- | ------- |
