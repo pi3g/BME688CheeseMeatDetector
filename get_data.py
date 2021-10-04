@@ -1,20 +1,20 @@
 from bme68x import BME68X
 import json
 
+def read_conf(path: str):
+    with open(path, 'rb) as conf_file:
+        conf = [int.from_bytes(bytes([b]), 'little') for b in conf_file.read()]
+        conf = conf[4:]
+    return conf
+
 def main():
     s = BME68X(0x77, 0)
 
-    with open('/home/pi/Desktop/DigitalNose/Algorithms/CheeseVsMeat/2021_08_09_17_10_bsec_NormalAi_Meat_Cheese_2_0_6_1.config', 'rb') as conf_file:
-        meat_n_cheese = [int.from_bytes(bytes([b]), 'little') for b in conf_file.read()]
-        meat_n_cheese = meat_n_cheese[4:]
+    meat_n_cheese = read_conf('/home/pi/Desktop/DigitalNose/Algorithms/CheeseVsMeat/2021_08_09_17_10_bsec_NormalAi_Meat_Cheese_2_0_6_1.config')
 
-    with open('/home/pi/Desktop/DigitalNose/BSEC_2.0.6.1_Generic_Release_04302021/config/bsec_sel_iaq_33v_4d/2021_04_29_02_51_bsec_h2s_nonh2s_2_0_6_1 .config', 'rb') as conf_file:
-        default_conf = [int.from_bytes(bytes([b]), 'little') for b in conf_file.read()]
-        default_conf = default_conf[4:]
+    default_conf = read_conf('/home/pi/Desktop/DigitalNose/BSEC_2.0.6.1_Generic_Release_04302021/config/bsec_sel_iaq_33v_4d/2021_04_29_02_51_bsec_h2s_nonh2s_2_0_6_1 .config')
 
-    with open('/home/pi/Desktop/DigitalNose/Algorithms/AirMeatCheese/2021_09_27_19_24_bsec_NormalAi_Meat_Cheese_2_0_6_1.config', 'rb') as conf_file:
-        air_meat_cheese = [int.from_bytes(bytes([b]), 'little') for b in conf_file.read()]
-        air_meat_cheese = air_meat_cheese[4:]
+    air_meat_cheese = read_conf('/home/pi/Desktop/DigitalNose/Algorithms/AirMeatCheese/2021_09_27_19_24_bsec_NormalAi_Meat_Cheese_2_0_6_1.config')
 
     print(f'SET BSEC CONF {s.set_bsec_conf(meat_n_cheese)}')
     # print(f'SET BSEC CONF {s.set_bsec_conf(air_meat_cheese)}')
@@ -61,4 +61,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
