@@ -10,6 +10,7 @@
 | replace the BSEC_2.0.6.1_Generic_Release_04302021 placeholder directory by the BSEC 2.0.6.1 package | `sudo unzip path/to/BSEC_2.0.6.1_Generic_Release_04302021.zip -d path/to/BME688CheeseMeatDetector/bme68x-extension` |
 | build and install the bme68x python extension | `pip3 install -e path/to/BME688CheeseMeatDetector/bme68x-extension` |
 | install guizero (dependency) | `pip3 install guizero` |
+| make sure the bme688 sensor is connect (should see 0x77) | `i2cdetect -y 1` |
 | run get_data.py | `python3 path/to/BME688CheeseMeatDetector/get_data.py` |
 | run gas_estimates_gui.py (optional) | `python3 path/to/BME688CheeseMeatDetector/gas_estimates_gui.py ` |
 
